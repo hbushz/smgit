@@ -9,3 +9,4 @@ Creating a new branch is quick.
 这个分支也太神了吧!看我的改变.
 如果我在分支dev中修改文件, 但是不提交, 会怎么样呢?
 Creating a new branch is quick And simple.
+尝试一下no fast forward模式. 这是在dev分支中的修改!
