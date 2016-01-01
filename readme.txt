@@ -8,3 +8,4 @@ My stupid boss still prefers SVN.
 Creating a new branch is quick.
 Creating a new branch is quick And simple.
 这是我在master分支中的修改.
+我在master分支中加入一句话.
