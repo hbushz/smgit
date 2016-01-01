@@ -10,3 +10,4 @@ Creating a new branch is quick And simple.
 这是我在master分支中的修改.
 我新建了一个zhou的分支, 本行是在zhou的分支中加入的. 使用这个git的感觉还真是不错.
 分支的组织快的.
+测试一下stash功能. 本句话是在master分支中加入的.
