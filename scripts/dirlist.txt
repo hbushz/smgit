@@ -1,0 +1,7 @@
+total 48
+-rw-r--r--@ 1 SHZ  staff  6148  6 13 23:19 .DS_Store
+-rw-r--r--  1 SHZ  staff     0  6 19 00:02 dirlist.txt
+-rwxr-xr-x  1 SHZ  staff    49  6 12 19:53 ex3-4.sh
+-rwxr-xr-x  1 SHZ  staff    76  6 12 21:23 ex3-5.sh
+-rwxr-xr-x  1 SHZ  staff   214  6 12 22:52 ex3-9.sh
+-rwxr-xr-x  1 SHZ  staff    78  6 17 22:20 ex5-1.sh
