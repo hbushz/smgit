@@ -5,4 +5,4 @@ total 48
 -rwxr-xr-x  1 SHZ  staff    76  6 12 21:23 ex3-5.sh
 -rwxr-xr-x  1 SHZ  staff   214  6 12 22:52 ex3-9.sh
 -rwxr-xr-x  1 SHZ  staff    78  6 17 22:20 ex5-1.sh
-I modify this file in master.
+I modify this file.
