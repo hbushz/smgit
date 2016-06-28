@@ -20,3 +20,8 @@ for dir in $(ls /tmp)
 do
     echo "$dir"
 done
+
+for ((i=1;i<5;i++))
+do
+    echo "$i"
+done
