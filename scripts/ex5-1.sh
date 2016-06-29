@@ -16,12 +16,28 @@
 #     echo "$day"
 # done
 
-for dir in $(ls /tmp)
-do
-    echo "$dir"
-done
+# for dir in $(ls /tmp)
+# do
+#     echo "$dir"
+# done
 
-for ((i=1;i<=5;i++))
+# for ((i=1;i<=5;i++))
+# do
+#     echo "$i"
+# done
+
+for ((i=1;i<=9;i++))
 do
-    echo "$i"
+    for ((j=1;j<=i;j++))
+    do 
+        if [ "$((j % 2))" -eq 1 ]; then
+            continue 
+        fi
+        let product=i*j
+        printf "$i*$j=$product "
+        if [ "$j" -gt 7 ]; then
+            break 
+        fi
+    done
+    printf "\n"
 done
