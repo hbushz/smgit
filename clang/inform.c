@@ -1,6 +1,10 @@
 #include <stdio.h>
+#include <tgmath.h>
 int main(void)
 {
-		printf("A .c is used to end a C program filename. \n");
-		return 0;
+	long i;
+	i=pow(2,62);
+	printf("int %ld \n",i);
+
+	return 0;
 }

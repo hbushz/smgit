@@ -4,10 +4,10 @@ print "Enter a temperature in temperature (e.g., 32F, 100C): \n";
 $input = <STDIN>;
 chomp($input);		#delete the \n of the input
 
-if ( $input =~ m/^([+-]?[0-9]+(\.[0-9]*)?)\s*([CF])$/i )
+if ( $input =~ m/^([+-]?[0-9]+(?:\.[0-9]*)?)\s*([CF])$/i )
 {
 	$InputNum = $1;
-	$type = $3;
+	$type = $2;
 
 	if ( $type =~ m/c/i )
 	{
