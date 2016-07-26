@@ -1,3 +1,4 @@
+#! /usr/bin/python
 max=10
 
 print "Starting"
