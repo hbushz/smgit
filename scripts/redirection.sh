@@ -1,5 +1,11 @@
 #! /bin/bash
 
-cat<<EOF>log.txt
-Log File header
-EOF
+while read line; 
+do 
+    echo "$line"; 
+done <<< "`find . -name "*.txt"`"
+# while read line; 
+# do 
+#     echo "$line"; 
+# done < ./log.txt
+

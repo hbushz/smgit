@@ -1,0 +1,11 @@
+--- A.txt	2016-08-18 09:11:59.000000000 +0800
++++ B.txt	2016-08-18 09:12:30.000000000 +0800
+@@ -1,4 +1,6 @@
+-carrot
+-cookies
++apple
+ gold
++iron
+ orange
++silver
++steel

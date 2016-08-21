@@ -1,4 +1,6 @@
-carrot
-cookies
+apple
 gold
+iron
 orange
+silver
+steel

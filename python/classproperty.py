@@ -1,7 +1,7 @@
 #! /usr/local/bin/python3
 class Student(object):
     def __init__(self,name):
-        self.__name=name
+        self.name=name
 
     @property
     def score(self):
@@ -16,5 +16,5 @@ class Student(object):
         self._myscore=value
 
 shuomo=Student("Zhang Suheng")
-shuomo.score=60
-print(shuomo.score)
+shuomo.score=94
+print("%s's score is %d." % (shuomo.name,shuomo.score))
