@@ -11,3 +11,4 @@ def quadratic(a,b,c):
 
 root=quadratic(1,4,-21)
 print(root)
+
