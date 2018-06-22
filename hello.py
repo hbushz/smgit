@@ -119,15 +119,30 @@
 #     print(n)
 
 # Yanghui Triangle generator
-def yht(max):
+def yht(N):
     n = 1
     yhl = [1]
-    while n <= max:
+    while n <= N:
         yield yhl
-        # yhl = yhl.insert(0, 0)+yhl.append(0)
-    return 'done'
+        yhll = [0]+yhl
+        yhlr = yhl+[0]
+        yhl = list(map(lambda m, n: m+n, yhll, yhlr))
+        n = n+1
+    return 'Done'
 
 
-for yl in yht(3):
-    for n in yl:
-        print(n)
+for yhlist in yht(6):
+    print(yhlist)
+
+# Day 2018-06-22 class
+# class Student(object):
+#     count = 0
+
+#     def __init__(self, name):
+#         self.name = name
+#         Student.count = Student.count + 1
+
+
+# shuomo = Student('zhangSuheng')
+# shuomo = Student('zhangSuheng')
+# print(Student.count)
