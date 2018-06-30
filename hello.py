@@ -119,16 +119,14 @@
 #     print(n)
 
 # Yanghui Triangle generator
-# def yht(N):
-#     n = 1
-#     yhl = [1]
-#     while n <= N:
-#         yield yhl
-#         yhll = [0]+yhl
-#         yhlr = yhl+[0]
-#         yhl = list(map(lambda m, n: m+n, yhll, yhlr))
-#         n = n+1
-#     return 'Done'
+def yht(N):
+    n = 1
+    yhl = [1]
+    while n <= N:
+        yield yhl
+        yhl = list(map(lambda m, n: m+n, [0]+yhl, yhl+[0]))
+        n = n+1
+    return 'Done'
 
 
 # for yhlist in yht(6):
