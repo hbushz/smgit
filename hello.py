@@ -148,47 +148,65 @@
 # print(Student.count)
 
 
-class Student(object):
+# class Student(object):
 
-    def __init__(self, name):
-        self.name = name
+#     def __init__(self, name):
+#         self.name = name
 
-    def __str__(self):
-        return 'Student object (%s)' % self.name
+#     def __str__(self):
+#         return 'Student object (%s)' % self.name
 
-    @property
-    def birth(self):
-        return self._birth
+#     @property
+#     def birth(self):
+#         return self._birth
 
-    @birth.setter
-    def birth(self, year):
-        if not(isinstance(year, int)):
-            raise ValueError('score must be an integer.')
-        elif (year <= 1900 or year > 2018):
-            raise ValueError('you must make a mistake!')
-        else:
-            self._birth = year
+#     @birth.setter
+#     def birth(self, year):
+#         if not(isinstance(year, int)):
+#             raise ValueError('score must be an integer.')
+#         elif (year <= 1900 or year > 2018):
+#             raise ValueError('you must make a mistake!')
+#         else:
+#             self._birth = year
 
-    @property
-    def score(self):
-        return self._score
+#     @property
+#     def score(self):
+#         return self._score
 
-    @score.setter
-    def score(self, value):
-        if not(isinstance(value, int)):
-            raise ValueError('score must be an integer.')
-        elif (value < 0 or value > 100):
-            raise ValueError('score should be 0~100.')
-        else:
-            self._score = value
+#     @score.setter
+#     def score(self, value):
+#         if not(isinstance(value, int)):
+#             raise ValueError('score must be an integer.')
+#         elif (value < 0 or value > 100):
+#             raise ValueError('score should be 0~100.')
+#         else:
+#             self._score = value
 
-    @property
-    def age(self):
-        return 2018-self._birth
+#     @property
+#     def age(self):
+#         return 2018-self._birth
 
 
-shuomo = Student('shz')
-shuomo.birth = 1990
-shuomo.score = 100
-print(shuomo)
-print(shuomo.name, shuomo.birth, shuomo.age, shuomo.score)
+# shuomo = Student('shz')
+# shuomo.birth = 1990
+# shuomo.score = 100
+# print(shuomo)
+# print(shuomo.name, shuomo.birth, shuomo.age, shuomo.score)
+
+# Day 2018-06-27 class
+from urllib import request, parse
+from datetime import datetime
+
+
+url = 'http://httpbin.org/post'
+headers = {
+    'User-Agent': 'Mozilla/5.0'
+}
+dit = {
+    'name': 'China'
+}
+data = bytes(parse.urlencode(dit), encoding='utf8')
+req = request.Request(url=url, data=data, headers=headers, method='POST')
+res = request.urlopen(req)
+print(res.read())
+print(datetime.now())
