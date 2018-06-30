@@ -124,9 +124,7 @@ def yht(N):
     yhl = [1]
     while n <= N:
         yield yhl
-        yhll = [0]+yhl
-        yhlr = yhl+[0]
-        yhl = list(map(lambda m, n: m+n, yhll, yhlr))
+        yhl = list(map(lambda m, n: m+n, [0]+yhl, yhl+[0]))
         n = n+1
     return 'Done'
 
