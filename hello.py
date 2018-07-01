@@ -119,14 +119,14 @@
 #     print(n)
 
 # Yanghui Triangle generator
-def yht(N):
-    n = 1
-    yhl = [1]
-    while n <= N:
-        yield yhl
-        yhl = list(map(lambda m, n: m+n, [0]+yhl, yhl+[0]))
-        n = n+1
-    return 'Done'
+# def yht(N):
+#     n = 1
+#     yhl = [1]
+#     while n <= N:
+#         yield yhl
+#         yhl = list(map(lambda m, n: m+n, [0]+yhl, yhl+[0]))
+#         n = n+1
+#     return 'Done'
 
 
 # for yhlist in yht(6):
@@ -192,19 +192,19 @@ def yht(N):
 # print(shuomo.name, shuomo.birth, shuomo.age, shuomo.score)
 
 # Day 2018-06-27 class
-from urllib import request, parse
-from datetime import datetime
+# from urllib import request, parse
+# from datetime import datetime
 
 
-url = 'http://httpbin.org/post'
-headers = {
-    'User-Agent': 'Mozilla/5.0'
-}
-dit = {
-    'name': 'China'
-}
-data = bytes(parse.urlencode(dit), encoding='utf8')
-req = request.Request(url=url, data=data, headers=headers, method='POST')
-res = request.urlopen(req)
-print(res.read())
-print(datetime.now())
+# url = 'http://httpbin.org/post'
+# headers = {
+#     'User-Agent': 'Mozilla/5.0'
+# }
+# dit = {
+#     'name': 'China'
+# }
+# data = bytes(parse.urlencode(dit), encoding='utf8')
+# req = request.Request(url=url, data=data, headers=headers, method='POST')
+# res = request.urlopen(req)
+# print(res.read())
+# print(datetime.now())
