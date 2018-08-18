@@ -208,3 +208,101 @@
 # res = request.urlopen(req)
 # print(res.read())
 # print(datetime.now())
+
+# Day 2018-08-15 function
+# from functools import reduce
+# from operator import add
+
+# ans1 = reduce(add, range(100))
+# ans2 = sum(range(100))
+# print(ans1, ans2)
+# print(callable(add))
+
+# 可调用对象( 调用运算符() )
+# import random
+
+
+# class BingoCage(object):
+#     def __init__(self, items):
+#         self._items = list(items)
+#         random.shuffle(self._items)
+
+#     def pick(self):
+#         try:
+#             return self._items.pop()
+#         except IndexError:
+#             raise LookupError('pick from empty BingoCage')
+
+#     def __call__(self):         # 可调用对象需要的函数
+#         return self.pick()
+
+
+# bingo = BingoCage(range(3))
+# print(bingo())
+# print(bingo())
+# print(bingo())
+
+# Day 2018-08-17 function
+# 函数注解
+# def sum(x: int, y: 'int > 0') -> int:
+#     pass
+
+
+# for key, v in sum.__annotations__.items():
+#     print(key)
+#     print(v)
+
+# 支持函数式编程的包
+# from functools import reduce
+# from operator import mul
+
+
+# def fact(n):
+#     return reduce(mul, range(1, n+1))
+
+
+# num = fact(20)
+# print(num)
+
+# Day 2018-08-18 function
+# from operator import itemgetter
+
+
+# cdate = [('Tokyo', 'JP', (1, 2)),
+#          ('Shanghai', 'SH', (3, 4)),
+#          ('Anguo', 'AG', (6, 4)),
+#          ('Mexico City', 'MX', (4, 5))
+#          ]
+# # for city in sorted(cdate, key=itemgetter(0)):
+# #     print(city)
+
+# index = itemgetter(1, 0)
+# for cname in cdate:
+#     print(index(cname))
+
+from collections import namedtuple
+
+Card = namedtuple('Card', ['rank', 'suit'])
+mycard = Card('7', 'clubs')
+print(mycard)
+
+
+class Porker(object):
+    ranks = [str(n) for n in range(2, 11)] + list('JQKA')
+    suits = 'spade diamonds clubs hearts'.split()
+
+    def __init__(self):
+        self._cards = [
+            Card(rank, suit) for suit in self.suits for rank in self.ranks
+        ]
+
+    def __len__(self):
+        return len(self._cards)
+
+    def __getitem__(self, position):
+        return self._cards[position]
+
+
+deck = Porker()
+for n in range(len(deck)):
+    print(deck[n])
