@@ -40,7 +40,6 @@
 # Day 5 function
 # import math
 
-
 # def quadratic(a, b, c):
 #     if b*b >= 4*a*c:
 #         x1 = (-b - math.sqrt(b*b - 4*a*c))/(2*a)
@@ -48,7 +47,6 @@
 #     else:
 #         raise TypeError('no real root')
 #     return x1, x2
-
 
 # x1, x2 = quadratic(1, 5, 3)
 # print(x1, x2)
@@ -59,7 +57,6 @@
 #         sum = sum*n
 #     return sum
 
-
 # num = (1, 2, 3, 4)
 # print(calc(*num))
 
@@ -67,7 +64,6 @@
 #     if n == 1:
 #         return 1
 #     return n*fact(n-1)
-
 
 # print(fact(10))
 
@@ -78,7 +74,6 @@
 #         move(n-1, a, c, b)
 #         move(1, a, b, c)
 #         move(n-1, b, a, c)
-
 
 # move(3, "A", "B", "C")
 
@@ -94,12 +89,10 @@
 #             min = t
 #     return min, max
 
-
 # print(findMinandMax([0, 1, 10, 0, 2]))
 # print(findMinandMax([]))
 
 # import os
-
 
 # d = [d for d in os.listdir('.')]
 # for myhome in d:
@@ -114,7 +107,6 @@
 #         n = n + 1
 #     return "done"
 
-
 # for n in fib(5):
 #     print(n)
 
@@ -128,7 +120,6 @@
 #         n = n+1
 #     return 'Done'
 
-
 # for yhlist in yht(6):
 #     print(yhlist)
 
@@ -140,11 +131,9 @@
 #         self.name = name
 #         Student.count = Student.count + 1
 
-
 # shuomo = Student('zhangSuheng')
 # shuomo = Student('zhangSuheng')
 # print(Student.count)
-
 
 # class Student(object):
 
@@ -184,7 +173,6 @@
 #     def age(self):
 #         return 2018-self._birth
 
-
 # shuomo = Student('shz')
 # shuomo.birth = 1990
 # shuomo.score = 100
@@ -194,7 +182,6 @@
 # Day 2018-06-27 class
 # from urllib import request, parse
 # from datetime import datetime
-
 
 # url = 'http://httpbin.org/post'
 # headers = {
@@ -221,7 +208,6 @@
 # 可调用对象( 调用运算符() )
 # import random
 
-
 # class BingoCage(object):
 #     def __init__(self, items):
 #         self._items = list(items)
@@ -236,7 +222,6 @@
 #     def __call__(self):         # 可调用对象需要的函数
 #         return self.pick()
 
-
 # bingo = BingoCage(range(3))
 # print(bingo())
 # print(bingo())
@@ -247,7 +232,6 @@
 # def sum(x: int, y: 'int > 0') -> int:
 #     pass
 
-
 # for key, v in sum.__annotations__.items():
 #     print(key)
 #     print(v)
@@ -256,17 +240,14 @@
 # from functools import reduce
 # from operator import mul
 
-
 # def fact(n):
 #     return reduce(mul, range(1, n+1))
-
 
 # num = fact(20)
 # print(num)
 
 # Day 2018-08-18 function
 # from operator import itemgetter
-
 
 # cdate = [('Tokyo', 'JP', (1, 2)),
 #          ('Shanghai', 'SH', (3, 4)),
@@ -280,29 +261,83 @@
 # for cname in cdate:
 #     print(index(cname))
 
-from collections import namedtuple
+# from collections import namedtuple
 
-Card = namedtuple('Card', ['rank', 'suit'])
-mycard = Card('7', 'clubs')
-print(mycard)
+# Card = namedtuple('Card', ['rank', 'suit'])
+# mycard = Card('7', 'clubs')
+# print(mycard)
+
+# class Porker(object):
+#     ranks = [str(n) for n in range(2, 11)] + list('JQKA')
+#     suits = 'spade diamonds clubs hearts'.split()
+
+#     def __init__(self):
+#         self._cards = [
+#             Card(rank, suit) for suit in self.suits for rank in self.ranks
+#         ]
+
+#     def __len__(self):
+#         return len(self._cards)
+
+#     def __getitem__(self, position):
+#         return self._cards[position]
+
+# deck = Porker()
+# for n in range(len(deck)):
+#     print(deck[n])
+
+# Day 2018-08-18 closure
+# def creatcounter(b=0):
+#     t = b
+
+#     def counter():
+#         nonlocal t
+#         t = t + 1
+#         return t
+
+#     return counter
+
+# count = creatcounter(10)
+# count()
+# print(count())
+# print(count())
+# print(count())
+
+# Day 2018-08-22 装饰器
+import time
 
 
-class Porker(object):
-    ranks = [str(n) for n in range(2, 11)] + list('JQKA')
-    suits = 'spade diamonds clubs hearts'.split()
+def clock(func):
+    def clocked(*args):
+        t0 = time.time()
+        result = func(*args)
+        elapsed = time.time() - t0
+        name = func.__name__
+        arg_str = ', '.join(repr(arg) for arg in args)
+        print('[%0.8fs] %s(%s) -> %r' % (elapsed, name, arg_str, result))
+        return result
 
-    def __init__(self):
-        self._cards = [
-            Card(rank, suit) for suit in self.suits for rank in self.ranks
-        ]
-
-    def __len__(self):
-        return len(self._cards)
-
-    def __getitem__(self, position):
-        return self._cards[position]
+    return clocked
 
 
-deck = Porker()
-for n in range(len(deck)):
-    print(deck[n])
+@clock
+def snooze(seconds):
+    time.sleep(seconds)
+
+
+@clock
+def sum(a, b):
+    return a + b
+
+
+@clock
+def factorial(n):
+    return 1 if n < 2 else n * factorial(n - 1)
+
+
+if __name__ == '__main__':
+    print('*' * 40, 'Calling snooze(1.234)')
+    snooze(1.234)
+    sum(1, 2)
+    print('*' * 40, 'Calling factorial(10)')
+    print('10!=', factorial(10))
