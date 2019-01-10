@@ -1,8 +1,7 @@
-max=10
+max = 10
 
-print "Starting"
-
+print("Starting")
 for i in range(max):
-    print "Counter:", i
+    print("Counter:", i)
 
-print "Done"
+print("Done")

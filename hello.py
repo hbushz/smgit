@@ -304,40 +304,122 @@
 # print(count())
 
 # Day 2018-08-22 装饰器
-import time
+# import time
 
 
-def clock(func):
-    def clocked(*args):
-        t0 = time.time()
-        result = func(*args)
-        elapsed = time.time() - t0
-        name = func.__name__
-        arg_str = ', '.join(repr(arg) for arg in args)
-        print('[%0.8fs] %s(%s) -> %r' % (elapsed, name, arg_str, result))
-        return result
+# def clock(func):
+#     def clocked(*args):
+#         t0 = time.time()
+#         result = func(*args)
+#         elapsed = time.time() - t0
+#         name = func.__name__
+#         arg_str = ', '.join(repr(arg) for arg in args)
+#         print('[%0.8fs] %s(%s) -> %r' % (elapsed, name, arg_str, result))
+#         return result
 
-    return clocked
-
-
-@clock
-def snooze(seconds):
-    time.sleep(seconds)
+#     return clocked
 
 
-@clock
-def sum(a, b):
-    return a + b
+# @clock
+# def snooze(seconds):
+#     time.sleep(seconds)
 
 
-@clock
-def factorial(n):
-    return 1 if n < 2 else n * factorial(n - 1)
+# @clock
+# def sum(a, b):
+#     return a + b
 
 
-if __name__ == '__main__':
-    print('*' * 40, 'Calling snooze(1.234)')
-    snooze(1.234)
-    sum(1, 2)
-    print('*' * 40, 'Calling factorial(10)')
-    print('10!=', factorial(10))
+# @clock
+# def factorial(n):
+#     return 1 if n < 2 else n * factorial(n - 1)
+
+
+# if __name__ == '__main__':
+#     print('*' * 40, 'Calling snooze(1.234)')
+#     snooze(1.234)
+#     sum(1, 2)
+#     print('*' * 40, 'Calling factorial(10)')
+#     print('10!=', factorial(10))
+
+# Day 2018-08-26 copy
+# class Bus(object):
+#     def __init__(self, passengers=None):
+#         if passengers is None:
+#             self.passen = []
+#         else:
+#             self.passen = list(passengers)
+
+#     def pick(self, name):
+#         self.passen.append(name)
+
+#     def drop(self, name):
+#         self.passen.remove(name)
+
+#     def show(self):
+#         for p in self.passen:
+#             print(p)
+
+
+# bus1 = Bus(['A', 'B', 'C'])
+# bus1.pick('shuomo')
+# bus1.show()
+
+# Day 2018-08-28 copy
+# a = [10, 20]
+# b = [a, 30]
+# a.append(b)
+# for num in a:
+#     print(num)
+
+# def f(a, b):
+#     a +=  b
+#     return a
+
+
+# a = [10, 20]
+# b = [20, 30]
+# print(f(a, b))
+# print(a)
+
+# Day 2018-09-04 format函数
+# age = 29
+# print("Hello, my age is %d." % age)
+# print("Hello, {} {}.".format('my age is','29'))
+# print("{1}.{1[0]}.{1[1]}".format(('www'), ('baidu', 'com')))
+# print("{:0>4}".format('I'), end="\t")
+# print("{:0>4}".format('I'), end="\t")
+# print()
+# print("{:0>4}".format('I'), end="\t")
+# s = 'Hello, world.'
+# str(s)
+
+# Day 2018-09-05 类的特殊方法
+# from array import array
+# import math
+
+
+# class Vector(object):
+#     typecode = 'd'
+
+#     def __init__(self, x, y):
+#         self.x = float(x)
+#         self.y = float(y)
+
+#     def __iter__(self):
+#         return (i for i in (self.x, self.y))
+
+#     def __repr__(self):
+#         class_name = type(self).__name__
+#         return '{}({!r}, {!r})'.format(class_name, *self)
+
+#     def __str__(self):
+#         return str(tuple(self))
+
+
+
+# v1 =Vector(3, 4)
+# print(repr(v1))
+# print(str(v1))
+# for cor in v1:
+#     print(cor)
